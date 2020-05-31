@@ -1,0 +1,39 @@
+extDomains:
+  ftn: https://test.ftn.fedex.com
+fcbDomains:
+  secure: %%domain.secure%%
+  services: %%domain.services%%
+  tools: %%domain.tools%%
+  customerTools: %%domain.customertools%%
+redis:
+  host: %%redis.host%%
+  port: %%redis.port%%
+  password: %%redis.password%%
+  db: 0
+  expirationTime: 3600
+db:
+  bongo:
+    adapter: mysql
+    database: %%database.bongo%%
+    username: %%user.bongo%%
+    password: %%password.bongo%%
+    host: %%host.bongo%%
+    port: %%mysql.port%%
+    idleConns: 10
+    openConns: 100
+  masterbook:
+    adapter: mysql
+    database: %%database.masterbook%%
+    username: %%user.masterbook%%
+    password: %%password.masterbook%%
+    host: %%host.masterbook%%
+    port: %%mysql.port%% 
+    idleConns: 10
+    openConns: 100
+jwt:
+  alg: HS512
+  key: TDE0djNAMjAxOFAzUlVDMEwwTUJJNEA=
+  exp: 86400
+app:
+  port: 9080
+logEnabled: false

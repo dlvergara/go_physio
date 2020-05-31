@@ -1,0 +1,25 @@
+extDomains:
+  ftn: https://test.ftn.fedex.com
+redis:
+  host: localhost
+  port: 6379
+  password: CBkaPkcF4hs4
+  db: 0
+  expirationTime: 3600
+db:
+  masterbook:
+    adapter: mysql
+    database: masterbook
+    username: root
+    password: BQCf64drQ5oxZml
+    host: 172.19.20.206
+    port: 3307
+    idleConns: 10
+    openConns: 100
+jwt:
+  alg: HS512
+  key: TDE0djNAMjAxOFAzUlVDMEwwTUJJNEA=
+  exp: 86400
+app:
+  port: 8080
+logEnabled: true

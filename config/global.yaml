@@ -1,0 +1,39 @@
+extDomains:
+  ftn: ${FTN_DOMAIN}
+fcbDomains:
+  secure: ${SECURE_DOMAIN}
+  services: ${SERVICES_DOMAIN}
+  tools: ${TOOLS_DOMAIN}
+  customerTools: ${CUSTOMERTOOLS_DOMAIN}
+redis:
+  host: ${REDIS_HOST}
+  port: ${REDIS_PORT}
+  password: ${REDIS_PASSWORD}
+  db: 0
+  expirationTime: 3600
+db:
+  bongo:
+    adapter: mysql
+    database: ${DB_BONGO_DATABASE}
+    username: ${DB_BONGO_USER}
+    password: ${DB_BONGO_PASSWORD}
+    host: ${DB_BONGO_HOST}
+    port: ${DB_BONGO_PORT}
+    idleConns: 10
+    openConns: 100
+  masterbook:
+    adapter: mysql
+    database: ${DB_BONGO_DATABASE}
+    username: ${DB_BONGO_USER}
+    password: ${DB_BONGO_PASSWORD}
+    host: ${DB_BONGO_HOST}
+    port: ${DB_BONGO_PORT}
+    idleConns: 10
+    openConns: 100
+jwt:
+  alg: HS512
+  key: ${JWT_KEY}
+  exp: 86400
+app:
+  port: 9080
+logEnabled: true
