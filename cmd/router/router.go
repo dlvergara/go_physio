@@ -2,6 +2,7 @@ package router
 
 import (
 	systemStatusController "physiobot/modules/common/controller"
+	sessionController "physiobot/modules/session/controller"
 	"physiobot/modules/common/errors"
 	common "physiobot/modules/common/middleware"
 
@@ -51,6 +52,7 @@ func Init(server *echo.Echo) *echo.Echo {
 
 	// System status
 	v3.GET("/system/status", systemStatusController.SystemStatus)
+	v3.GET("/session", sessionController.CreateSession)
 
 	/*
 	// Endpoints that were initially for Walmart but can be used for other merchants
