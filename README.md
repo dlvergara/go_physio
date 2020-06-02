@@ -1,2 +1,2 @@
-# go_physio
+# physiobot
 Golang physiobot web app
