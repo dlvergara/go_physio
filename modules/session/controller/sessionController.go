@@ -19,10 +19,6 @@ func CreateSession(c echo.Context) error {
 	session.IPAddress = GetIP(c.Request())
 	session.Date = time.Now()
 
-	//Add sleeping time to test for the await connection on the app
-	//TODO: remove this
-	time.Sleep(20 * time.Second)
-
 	return c.JSON(http.StatusOK, session)
 }
 
