@@ -16,6 +16,7 @@ func CreateSession(c echo.Context) error {
 	}
 	session.SessionID = identification.String()
 	session.IPAddress = GetIP(c.Request())
+	session.Date = time.Now()
 
 	return c.JSON(http.StatusOK, session)
 }
