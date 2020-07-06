@@ -11,8 +11,7 @@ import (
 
 // Handler struct to keep db conections
 type Handler struct {
-	Bongo      *gorm.DB
-	Masterbook *gorm.DB
+	Lukex      *gorm.DB
 }
 
 type dbConf struct {
@@ -30,34 +29,22 @@ var dbHandler *Handler
 
 // Init conections with config from global.yaml
 func init() {
-	//configuration := config.GetConfig()
-	/*
-	bongoConfig := dbConf{
-		Adapter:   configuration.Db.Bongo.Adapter,
-		Database:  configuration.Db.Bongo.Database,
-		Username:  configuration.Db.Bongo.Username,
-		Password:  configuration.Db.Bongo.Password,
-		Host:      configuration.Db.Bongo.Host,
-		Port:      configuration.Db.Bongo.Port,
-		IdleConns: configuration.Db.Bongo.IdleConns,
-		OpenConns: configuration.Db.Bongo.OpenConns,
-	}
+	configuration := config.GetConfig()
+	println(configuration);
 
-	masterbookConfig := dbConf{
-		Adapter:   configuration.Db.Masterbook.Adapter,
-		Database:  configuration.Db.Masterbook.Database,
-		Username:  configuration.Db.Masterbook.Username,
-		Password:  configuration.Db.Masterbook.Password,
-		Host:      configuration.Db.Masterbook.Host,
-		Port:      configuration.Db.Masterbook.Port,
-		IdleConns: configuration.Db.Masterbook.IdleConns,
-		OpenConns: configuration.Db.Masterbook.OpenConns,
+	lukexConfig := dbConf{
+		Adapter:   configuration.Db.LukexDb.Adapter,
+		Database:  configuration.Db.LukexDb.Database,
+		Username:  configuration.Db.LukexDb.Username,
+		Password:  configuration.Db.LukexDb.Password,
+		Host:      configuration.Db.LukexDb.Host,
+		Port:      configuration.Db.LukexDb.Port,
+		IdleConns: configuration.Db.LukexDb.IdleConns,
+		OpenConns: configuration.Db.LukexDb.OpenConns,
 	}
 
 	dbHandler = new(Handler)
-	dbHandler.Bongo = mysqlConn(bongoConfig)
-	dbHandler.Masterbook = mysqlConn(masterbookConfig)
-	*/
+	dbHandler.Lukex = mysqlConn(lukexConfig)
 }
 
 // Manager return dbHandler instance
@@ -65,8 +52,8 @@ func Manager() *Handler {
 	return dbHandler
 }
 
-func DbBongo() *gorm.DB {
-	return dbHandler.Bongo
+func DbLukex() *gorm.DB {
+	return dbHandler.Lukex
 }
 
 func mysqlConn(dbEnv dbConf) *gorm.DB {

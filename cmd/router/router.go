@@ -2,9 +2,10 @@ package router
 
 import (
 	systemStatusController "physiobot/modules/common/controller"
-	sessionController "physiobot/modules/session/controller"
 	"physiobot/modules/common/errors"
 	common "physiobot/modules/common/middleware"
+	lukexController "physiobot/modules/lukex/controller"
+	sessionController "physiobot/modules/session/controller"
 
 	"github.com/labstack/echo"
 	//"github.com/labstack/echo/middleware"
@@ -49,10 +50,11 @@ func Init(server *echo.Echo) *echo.Echo {
 	v3 := server.Group("/v1")
 
 	//Routes
+	v3.GET("/session", sessionController.CreateSession)
+	v3.GET("/lukex", lukexController.ProcessData)
 
 	// System status
 	v3.GET("/system/status", systemStatusController.SystemStatus)
-	v3.GET("/session", sessionController.CreateSession)
 
 	/*
 	// Endpoints that were initially for Walmart but can be used for other merchants

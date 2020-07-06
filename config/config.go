@@ -19,7 +19,7 @@ type Configuration struct {
 		ExpirationTime int `yaml:"expirationTime"`
 	}
 	Db struct {
-		Masterbook struct {
+		LukexDb struct {
 			Adapter   string
 			Database  string
 			Username  string
@@ -28,8 +28,8 @@ type Configuration struct {
 			Port      string
 			IdleConns int `yaml:"idleConns"`
 			OpenConns int `yaml:"openConns"`
-		}
-	}
+		} `yaml:"lukexDb"`
+	} `yaml:"db"`
 	Jwt struct {
 		Alg string
 		Key string
@@ -45,6 +45,7 @@ var configuration Configuration
 
 func init() {
 	appPath, _ := os.Getwd()
+	println(appPath);
 	configAppPath := appPath + "/config/global.yaml"
 
 	if fileExists(appPath + "/config/local.yaml") {
@@ -56,6 +57,11 @@ func init() {
 	if err != nil {
 		fmt.Println(err)
 	}
+	//configuration.Db.LukexDb.Host = configuration.Db.LukexDb.Host
+	//configuration.Db.LukexDb.Port = configuration.Db.LukexDb.Port
+	//configuration.Db.LukexDb.Database = configuration.Db.LukexDb.Database
+	//configuration.Db.LukexDb.Username = configuration.Db.LukexDb.Username
+	//configuration.Db.LukexDb.Password = configuration.Db.LukexDb.Password
 	/*
 	configuration.Db.Bongo.Host = getenv("DB_BONGO_HOST", configuration.Db.Bongo.Host)
 	configuration.Db.Bongo.Port = getenv("DB_BONGO_PORT", configuration.Db.Bongo.Port)

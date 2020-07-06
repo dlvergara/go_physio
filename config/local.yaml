@@ -1,5 +1,5 @@
 extDomains:
-  ftn: https://test.ftn.fedex.com
+  ftn:
 redis:
   host: localhost
   port: 6379
@@ -7,13 +7,13 @@ redis:
   db: 0
   expirationTime: 3600
 db:
-  masterbook:
+  lukexDb:
     adapter: mysql
-    database: masterbook
-    username: root
-    password: BQCf64drQ5oxZml
-    host: 172.19.20.206
-    port: 3307
+    database: lukex
+    username: lukex
+    password: Lukex2010.
+    host: 107.170.208.14
+    port: 3306
     idleConns: 10
     openConns: 100
 jwt:
