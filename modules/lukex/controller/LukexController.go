@@ -56,20 +56,20 @@ func printConsumed(broker kafka.Client, topic string) {
 	consumer, err := broker.Consumer(conf)
 	if err != nil {
 		logger.Error("cannot create kafka consumer for " + topic + "--" + err.Error())
-	}
-
-	for {
-		msg, err := consumer.Consume()
-		if err != nil {
-			if err != kafka.ErrNoData {
-				logger.Info("cannot consume " + topic + " topic message: " + err.Error())
+	} else {
+		for {
+			msg, err := consumer.Consume()
+			if err != nil {
+				if err != kafka.ErrNoData {
+					logger.Info("cannot consume " + topic + " topic message: " + err.Error())
+				}
+				break
 			}
-			break
+			//logger.Info("message %f - $s", msg.Offset, msg.Value)//+ ": " +
+			saveReceivedData(msg, topic)
 		}
-		//logger.Info("message %f - $s", msg.Offset, msg.Value)//+ ": " +
-		saveReceivedData(msg, topic)
+		logger.Info("consumer quit")
 	}
-	logger.Info("consumer quit")
 }
 
 func saveReceivedData(msg *proto.Message, topic string) {
