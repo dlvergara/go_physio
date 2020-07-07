@@ -28,6 +28,9 @@
   name = "github.com/labstack/echo"
   version = "3.3.10"
 
+[[constraint]]
+  name = "github.com/optiopay/kafka"
+
 [prune]
   go-tests = true
   unused-packages = true

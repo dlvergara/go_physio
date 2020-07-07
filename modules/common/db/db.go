@@ -30,7 +30,6 @@ var dbHandler *Handler
 // Init conections with config from global.yaml
 func init() {
 	configuration := config.GetConfig()
-	println(configuration);
 
 	lukexConfig := dbConf{
 		Adapter:   configuration.Db.LukexDb.Adapter,
