@@ -24,6 +24,7 @@ func ProcessData(c echo.Context) error {
 	topics[2] = "JetPeru"
 	topics[3] = "TKambio"
 	topics[4] = "CambistaInca"
+	topics[5] = "TuCambista"
 
 	configuration := config.GetConfig()
 	fmt.Println(configuration)
