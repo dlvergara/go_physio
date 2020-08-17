@@ -5,4 +5,5 @@ type ExchangeModel struct {
 	Timestamp string `gorm:"Column:timestamp"`
 	Provider string `gorm:"Column:provider"`
 	Exchange string `gorm:"Column:exchange"`
+	Note	string `gorm:"Column:note"`
 }

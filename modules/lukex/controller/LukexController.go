@@ -20,11 +20,11 @@ func ProcessData(c echo.Context) error {
 
 	topics := map[int]string{}
 
-	topics[1] = "CocosyLucas"
-	topics[2] = "JetPeru"
-	topics[3] = "TKambio"
-	topics[4] = "CambistaInca"
-	topics[5] = "TuCambista"
+	//topics[1] = "CocosyLucas"
+	//topics[2] = "JetPeru"
+	//topics[3] = "TKambio"
+	//topics[4] = "CambistaInca"
+	topics[1] = "TuCambista"
 
 	configuration := config.GetConfig()
 	fmt.Println(configuration)
